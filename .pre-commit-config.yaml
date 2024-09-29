@@ -1,30 +1,15 @@
 repos:
+  - repo: https://github.com/psf/black
+    rev: 24.8.0
     hooks:
       - id: black
-        name: black
-        description: "Black: The uncompromising Python code formatter"
-        entry: black
-        language: python
-        minimum_pre_commit_version: 2.9.2
-        require_serial: true
-        types_or: [python, pyi]
 
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
 
-      -   id: isort
-          name: isort
-          entry: isort
-          stages: [commit, merge-commit, push, manual]
-          require_serial: true
-          language: python
-          types_or: [cython, pyi, python]
-          args: ['--filter-files']
-          minimum_pre_commit_version: '2.9.2'
-
-
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.1.1
+    hooks:
       - id: flake8
-        name: flake8
-        description: '`flake8` is a command-line utility for enforcing style consistency across Python projects.'
-        entry: flake8
-        language: python
-        types: [python]
-        require_serial: true
